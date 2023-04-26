@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение статуса заказа</title>
+</head>
+<body>
+<h3>Изменение статуса заказа</h3>
+<form th:action="@{/admin/order/change/{number}(number=${updateOrder.getNumber()})}" th:method="POST" th:object="${updateOrder}">
+    <div th:each="order: ${updateOrder}">
+         <label for="status">Категория</label>
+        <select id="status" th:field="*{status}">
+            <option th:each="status: ${T(com.example.total.enumm.Status).values()}"
+                    th:text="${status.getValue()}" th:value="${status}">
+            </option>
+        </select>
+        <br>
+        <input type="submit" value="Изменить">
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,66 @@
+#content
+{
+    background:white;
+    border:1px solid grey;
+    margin:1px;
+    padding:20px;
+    text-align:center;
+    width:500px;
+    height: 550px;
+}
+
+#content h1
+{
+    color: darkorange;
+    font: 30px Arial bold;
+}
+
+#content form input[type="text"],
+#content form input[type="password"],
+#content form input[type="email"],
+#content form input[type="number"],
+#content form input[type="tel"]
+{
+    border:1px solid grey;
+    margin:0 0 15px;
+    padding:15px 10px 10px 40px;
+    width:250px;
+    font:14px Arial;
+}
+
+font
+{
+    color:grey;
+    font:14px Arial;
+}
+
+#content form input[type="text"]:focus,
+#content form input[type="password"]:focus,
+#content form input[type="email"]:focus,
+#content form input[type="number"]:focus,
+#content form input[type="tel"]:focus
+{
+    border:1px solid orange;
+    outline:none;
+}
+
+#content form input[type="submit"]
+{
+    background:gold;
+    border: 1px solid darkorange;
+    font: 16px bold Arial;
+    margin-top: 10px;
+    width: 400px;
+
+
+}
+
+#content form input[type="submit"]:hover
+{
+    background:darkorange;
+}
+
+footer{
+    padding: 10px;
+    text-align: right;
+}

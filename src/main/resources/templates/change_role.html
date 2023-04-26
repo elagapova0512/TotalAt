@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Смена роли</title>
+</head>
+<body>
+<p> Изменение прав доступа пользователю:</p>
+<form th:action="@{/admin/person/role/{id}(id=${updatePerson.getId()})}" th:method="POST" th:object="${updatePerson}">
+  <label for="changeRole">Выберите:</label>
+  <select name="changeRole" id="changeRole">
+    <option value="admin">Администратор</option>
+    <option value="user">Пользователь</option>
+  </select>
+  <button type="submit">Изменить</button>
+</form>
+</body>
+</html>

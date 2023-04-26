@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление товара</title>
+</head>
+<body>
+<h3>Добавление карточки товара</h3>
+<form th:action="@{/admin/product/add}" th:method="POST" th:object="${newProduct}" enctype="multipart/form-data">
+  <label for="name">Название товара: </label>
+  <input type="text" name="name" id="name" th:field="*{name}">
+  <div style="color:red" th:if = "${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    <br>
+  <label for="description">Описание товара: </label>
+  <textarea type="text" name="desctiprion" id="description" th:field="*{description}"></textarea>
+  <div style="color:red" th:if = "${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+    <br>
+    <label for="color"> Цвет товара: </label>
+    <input type="text" name="color" id="color" th:field="*{color}">
+    <div style="color:red" th:if = "${#fields.hasErrors('color')}" th:errors="*{color}"></div>
+    <br>
+    <label for="price">Цена товара: </label>
+    <input type="number"  min = "1" name="price" id="price">
+    <div style="color:red" th:if = "${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+    <br>
+    <label for="category">Категория</label>
+    <select id="category" th:field="*{category}">
+        <option th:each="cat: ${T(com.example.total.enumm.Category).values()}"
+                th:text="${cat.getValue()}" th:value="${cat}">
+        </option>
+    </select>
+    <br>
+<p style="color: green">Загрузите до 3 фотографий, первая - главная для выводе карточки товара</p>
+    <input type="file" name="file_one" id="file_one">
+    <input type="file" name="file_two" id="file_two">
+    <input type="file" name="file_three" id="file_three">
+    <br>
+    <br>
+    <input type="submit" value="Добавить">
+
+</form>
+</body>
+</html>

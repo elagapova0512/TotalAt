@@ -1,0 +1,77 @@
+.container{
+    display: grid;
+}
+header {
+    background-color: #41B3A3;
+    padding-top: 20px;
+    color: #05386B;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+header a {
+    color: #5CDB95;
+    text-decoration: none;
+    align-self: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+.main_home{
+    text-align: center;
+}
+.search{
+    text-align: center;
+}
+.cardGrid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.img-card{
+    text-align: center;
+}
+.card-body{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+footer {
+    padding: 10px;
+    text-align: right;
+}
+h3{
+    text-align: center;
+    color:#05386B ;
+}
+h4{
+    text-align: center;
+}
+#card-cart,#card-delete,#card-update{
+    text-align: center;
+}
+button{
+    border-radius: 5px;
+    border: none;
+    background-color:lightseagreen;
+    color: white;
+}
+button a{
+    border-radius: 5px;
+    border: none;
+    background-color:lightseagreen;
+    color: white;
+}
+.user-body{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+.userGrid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}

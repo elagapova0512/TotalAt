@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о пользователе</title>
+</head>
+<body>
+<h3>Информация о пользователе</h3>
+<p th:text="'Фамилия: ' + ${person.getSurname()}"></p>
+<p th:text="'Имя: ' + ${person.getName()}"></p>
+<p th:text="'Возраст: ' + ${person.getAge()}"></p>
+<p th:text="'Номер телефона: ' + ${person.getPhone()}"></p>
+<p th:text="'Адрес электронной почты: ' + ${person.getEmail()}"></p>
+<p th:text="'Логин: ' + ${person.getLogin()}"></p>
+<p th:text="'Права доступа: ' + ${person.getRole()}"></p>
+<a th:href="@{/admin/person/role/{id}(id=${person.getId()})}">Изменить права доступа</a>
+</body>
+</html>

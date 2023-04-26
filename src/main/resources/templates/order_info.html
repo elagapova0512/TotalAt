@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о заказе</title>
+</head>
+<body>
+<h3> Информация о заказе </h3>
+<p th:text="'Заказ № ' + ${order.getNumber()}"></p>
+<p th:text="'Наименование товара ' + ${order.getProduct().getName()}"></p>
+<p th:text="'Количество ' + ${order.getCount()}"></p>
+<p th:text="'Цена ' + ${order.getTotalSum()}"></p>
+<p th:text="'Дата заказа ' + ${#temporals.format(order.getTime(),'dd-mm-yyyy')}"></p>
+<p th:text="'Статус ' + ${order.getStatus().getValue()}"></p>
+<br>
+<a th:href="@{/admin/order/change/{id}(id=${order.getId()})}">Изменить статус</a>
+
+</body>
+</html>

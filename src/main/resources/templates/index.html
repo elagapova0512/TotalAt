@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" th:href="@{/style/style.css}" text="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class ="row">
+            <div class= "col-md-2 text-md-start text-sm-center text-center col-sm-12 col-12">
+                <h1>Умный дом</h1>
+            </div>
+            <div class = "col-md-2 col-sm-12 text-center align-self-center">
+                <a href="#search">Поиск </a>
+            </div>
+            <div class = "col-md-2 col-sm-12 text-center align-self-center">
+                <a href="#catalogue">Каталог</a>
+            </div>
+            <div class = "col-md-2 col-sm-12 text-center align-self-center">
+                <a th:href="@{/orders}">Заказы</a>
+            </div>
+            <div class = "col-md-2 col-sm-12 text-center align-self-center">
+                <a th:href="@{/cart}"> Корзина </a>
+            </div>
+            <div class = "col-md-2 col-sm-12 text-center align-self-center">
+                <form th:action="@{/logOut}" method="POST">
+                    <button type="submit">Выйти</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </header>
+<p class = "main_home">
+<img th:src="@{/img/home.jpg}" alt="smarthome">
+</p>
+<div class="search">
+<form th:action="@{/pers_account/search}" th:method="POST">
+           <fieldset>
+            <legend id="search">Поиск, сортировка, фильтрация</legend>
+               <select name="sortAndFilter">
+                <option value="nameStartsWith">Поиск начальным буквам в наименовании</option>
+                <option value="price">Поиск начальным буквам в наименовании и сортировка по цене</option>
+                <option value="priceDesc">Поиск начальным буквам в наименовании и сортировка по цене по убыванию</option>
+              </select>
+            <br>
+            <br>
+            <input type="text" name="optionSort" placeholder="Введите сюда название для поиска" size="50">
+            <br><br>
+            <button type="submit">Выполнить</button>
+        </fieldset>
+    </form>
+<hr>
+    <div class = "col-md-12 col-sm-12 col-12 mp-2" id="search_result">
+Результаты поиска, сортировки и фильтрации:
+<div th:each="prod:${searchProduct}">
+    <a th:href="@{/product/info/{id}(id=${prod.getId()})}" th:text="${prod.getName()}"></a>
+    <p th:text="'Наименование: '+ ${prod.getName()}"></p>
+    <p th:text="'Цена ' + ${prod.getPrice()} + ' руб.'"></p>
+</div>
+</div>
+</div>
+<hr>
+<h3 id="catalogue"> Доступные для заказа товары </h3>
+<div class="container">
+    <div class="row">
+        <div class = "col-md cardGrid">
+<div th:each="product:${products}" class="card mb-0 mt-0 p-1" style="max-width: 360px; max-height: 700px">
+    <p class="img-card">
+    <img th:src="'/img/' + ${product.getImageList[0].getFileName()}" alt="photo" width="150px" height="150px">
+    </p>
+    <br>
+    <div class="card-body">
+    <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getName()}" style="text-decoration: none;font-size: 14px" id="card-name"></a>
+        <div class="d-flex justify-content-center align-item-center price" id="card-price">
+    <p th:text="${product.getPrice()} + ' руб.'"  style="font-weight: bold"></p>
+
+        </div>
+        <div class="d-flex justify-content-center align-item-center price" id="card-cart">
+    <button type="submit"><a th:href="@{/cart/add/{id}(id=${product.getId()})}" style="text-decoration: none">B корзину</a></button>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<footer>
+<form th:action="@{/logOut}" method="POST">
+    <button type="submit">Выйти из личного кабинета</button>
+</form>
+</footer>
+</body>
+</html>
