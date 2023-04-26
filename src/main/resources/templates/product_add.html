@@ -8,7 +8,7 @@
 <h3>Добавление карточки товара</h3>
 <form th:action="@{/admin/product/add}" th:method="POST" th:object="${newProduct}" enctype="multipart/form-data">
   <label for="name">Название товара: </label>
-  <input type="text" name="name" id="name" th:field="*{name}">
+  <input type="text" name="name" id="name" th:field="*{name}" size="60">
   <div style="color:red" th:if = "${#fields.hasErrors('name')}" th:errors="*{name}"></div>
     <br>
   <label for="description">Описание товара: </label>
