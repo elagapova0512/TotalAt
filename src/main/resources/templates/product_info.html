@@ -12,7 +12,7 @@
 <p th:text="'Цена: '+ ${product.getPrice()} + ' руб.'"></p>
 <p th:text="'Описание: '+ ${product.getDescription()}"></p>
 <div th:each="img: ${product.getImageList()}">
-    <img th:src="'/img/' + ${img.getFileName()}" alt="photo" width="50%">
+    <img th:src="'/img/' + ${img.getFileName()}" alt="photo" width="30%">
 </div>
 
 </body>

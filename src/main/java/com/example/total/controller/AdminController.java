@@ -1,18 +1,31 @@
 package com.example.total.controller;
 
+<<<<<<< HEAD
+=======
+import com.example.total.enumm.Status;
+>>>>>>> db66184 (SPRING total)
 import com.example.total.models.Cart;
 import com.example.total.models.Image;
 import com.example.total.models.Order;
 import com.example.total.models.Product;
+<<<<<<< HEAD
 import com.example.total.repositories.OrderRepository;
 import com.example.total.security.PersonDetails;
+=======
+import com.example.total.repositories.ImageRepository;
+import com.example.total.repositories.OrderRepository;
+import com.example.total.services.ImageService;
+>>>>>>> db66184 (SPRING total)
 import com.example.total.services.OrderService;
 import com.example.total.services.PersonService;
 import com.example.total.services.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
+<<<<<<< HEAD
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+=======
+>>>>>>> db66184 (SPRING total)
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,16 +44,31 @@ public class AdminController {
     private final PersonService personService;
     private final OrderRepository orderRepository;
        private final OrderService orderService;
+<<<<<<< HEAD
+=======
+       private final ImageService imageService;
+       private final ImageRepository imageRepository;
+>>>>>>> db66184 (SPRING total)
 
     @Value("${upload.path}")
 private String uploadPath;
 
+<<<<<<< HEAD
     public AdminController(ProductService productService, PersonService personService, OrderRepository orderRepository, OrderService orderService) {
         this.productService = productService;
         this.personService = personService;
         this.orderRepository = orderRepository;
 
         this.orderService = orderService;
+=======
+    public AdminController(ProductService productService, PersonService personService, OrderRepository orderRepository, OrderService orderService, ImageService imageService, ImageRepository imageRepository) {
+        this.productService = productService;
+        this.personService = personService;
+        this.orderRepository = orderRepository;
+        this.orderService = orderService;
+        this.imageService = imageService;
+        this.imageRepository = imageRepository;
+>>>>>>> db66184 (SPRING total)
     }
 
     @GetMapping("/admin")
@@ -114,11 +142,19 @@ private String uploadPath;
         return "product_update";
     }
 @PostMapping("/admin/product/update/{id}")
+<<<<<<< HEAD
 public String updateProductInfo(@PathVariable("id") int id, @ModelAttribute("updateProduct") @Valid Product product,BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             return "product_update";
         }
         productService.updateProductInfo(id,product);
+=======
+public String updateProductInfo(@PathVariable("id") int id, @ModelAttribute("updateProduct") @Valid Product product,BindingResult bindingResult) throws IOException {
+        if (bindingResult.hasErrors()){
+            return "product_update";
+        }
+            productService.updateProductInfo(id,product);
+>>>>>>> db66184 (SPRING total)
 return "redirect:/admin";
 }
 
@@ -144,6 +180,7 @@ return "change_role";
     }
     @GetMapping("/admin/order/{id}")
     public String showOrder(@PathVariable("id") int id,Model model){
+<<<<<<< HEAD
         //model.addAttribute("order", orderService.showAllOrders());
         model.addAttribute("order", orderService.getOrderById(id));
 //        String number = orderService.getOrderById().getNumber();
@@ -173,6 +210,11 @@ return "change_role";
 //orderService.updateOrderStatus(number,order);
 //        return "redirect:/admin";
 //    }
+=======
+        model.addAttribute("order", orderService.getOrderById(id));
+        return "order_info";
+    }
+>>>>>>> db66184 (SPRING total)
     @PostMapping("/admin/order/search")
     public String searchOrder(@RequestParam("search") String endingWith, Model model){
    model.addAttribute("searchOrder",orderService.findByNumberEndingWithIgnoreCase(endingWith));

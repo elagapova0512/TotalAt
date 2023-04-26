@@ -12,7 +12,7 @@
     <p th:text="'Наименование товара' + ${order.getProduct().getName()}"></p>
     <p th:text="'Количество ' + ${order.getCount()}"></p>
     <p th:text="'Цена ' + ${order.getTotalSum()}"></p>
-    <p th:text="'Дата заказа ' + ${#temporals.format(order.getTime(),'dd-mm-yyyy')}"></p>
+    <p th:text="'Дата заказа ' + ${#temporals.format(order.getDateTime(),'dd-MMM-yyyy')}"></p>
     <p th:text="'Статус ' + ${order.getStatus().getValue()}"></p>
 
 </div>

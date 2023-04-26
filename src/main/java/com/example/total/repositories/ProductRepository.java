@@ -15,6 +15,11 @@ public interface ProductRepository extends JpaRepository<Product,Integer> {
 
     @Query(value = "select * from product where ((lower(name) LIKE '%?1%') or (lower(name) LIKE '?1%') OR (lower(name) LIKE '%?1')) and (price >= ?2 and price <= ?3)", nativeQuery = true)
     List<Product> findByNameAndPriceGreaterThanEqualAndPriceLessThanEqual(String name, float from, float to);
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> db66184 (SPRING total)
 }
 
 

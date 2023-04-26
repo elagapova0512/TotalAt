@@ -6,7 +6,11 @@
 </head>
 <body>
 <h3>Редактирование карточки товара:</h3>
+<<<<<<< HEAD
 <form th:action="@{/admin/product/update/{id}(id=${updateProduct.getId()})}" th:method="POST" th:object="${updateProduct}">
+=======
+<form th:action="@{/admin/product/update/{id}(id=${updateProduct.getId()})}" th:method="POST" th:object="${updateProduct}" enctype="multipart/form-data">
+>>>>>>> db66184 (SPRING total)
   <label for="name">Название товара: </label>
   <input type="text" name="name" id="name" th:field="*{name}">
   <div style="color:red" th:if = "${#fields.hasErrors('name')}" th:errors="*{name}"></div>

@@ -22,10 +22,10 @@ public class Order {
 
 private int count; // quantity of goods in order
     private float totalSum;
-    private LocalDateTime time; // время создания заказа
+    private LocalDateTime dateTime; // время создания заказа
     @PrePersist
     public void init(){ // при создании заказа сработает этот метод
-        time = LocalDateTime.now();
+        dateTime = LocalDateTime.now();
     }
     private Status status;
 
@@ -89,12 +89,12 @@ private int count; // quantity of goods in order
         this.totalSum = totalSum;
     }
 
-    public LocalDateTime getTime() {
-        return time;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setTime(LocalDateTime time) {
-        this.time = time;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     public Status getStatus() {
